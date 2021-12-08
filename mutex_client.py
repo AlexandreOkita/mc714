@@ -10,3 +10,4 @@ if __name__ == '__main__':
         response = client.send_message(message)
         print(response)
         print()
+        message = input("Enter message: ")

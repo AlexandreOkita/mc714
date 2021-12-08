@@ -1,6 +1,8 @@
 import client as c
 
 if __name__ == '__main__':
-    client = c.UnaryClient('localhost', 50051)
-    response = client.send_message('Hello, world!')
+    with open("/home/ubuntu/mc714/mutex_server_ip") as f:
+            server = f.readlines()[0].strip()
+    client = c.UnaryClient('server', 5000)
+    response = client.send_message('banana')
     print(response)

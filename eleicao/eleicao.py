@@ -54,7 +54,7 @@ class Process:
         self.eleicao_ocorrendo = False
 
     def get_other_processes(self):
-        with open("/home/okita/mc714/hosts") as f:
+        with open("/home/ubuntu/mc714/hosts") as f:
             all_numbers = [line.strip() for line in f.readlines()]
         self.other_numbers = (all_numbers[all_numbers.index(self.my_number):]+all_numbers[:all_numbers.index(self.my_number)])[1:]
     

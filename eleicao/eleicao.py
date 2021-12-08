@@ -86,7 +86,7 @@ if __name__ == '__main__':
     print("Current coordinator:", process.coordenador)
 
     # Recebe mensagem de eleição
-    Thread(target=serve, args=(process.my_number, process,)).start()
+    Thread(target=serve, args=('5000', process,)).start()
     #pinga e inicia eleicao
     while True:
         #nao eh o coordenador

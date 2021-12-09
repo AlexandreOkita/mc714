@@ -19,7 +19,7 @@ class UnaryService(pb2_grpc.UnaryServicer):
         print("Received message from client: ", message)
         self.process.clock = max(int(message.split(",")[1]), self.process.clock) + 1
         print("Clock value: ", self.process.clock)
-        return pb2.Response(message=str(self.process.clock))
+        return pb2.Response(**{'message': str(self.process.clock), "received": True})
 
         
 class Process:

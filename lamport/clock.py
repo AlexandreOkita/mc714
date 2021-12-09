@@ -61,9 +61,10 @@ if __name__ == '__main__':
     Thread(target=serve, args=('5000', process,)).start()
     process.show_menu()
     host = input("Choose a host: ")
+    host = process.other_numbers[int(host)]
     message = input("Now enter a message: ")
     while message != "" or message != "exit":
-        client = c.UnaryClient(server, 5000)
+        client = c.UnaryClient(host, 5000)
         response = client.send_message(message+","+str(process.clock))
         print("New clock:", response)
         process.clock = int(response)

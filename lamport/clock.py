@@ -66,8 +66,8 @@ if __name__ == '__main__':
     while message != "" or message != "exit":
         client = c.UnaryClient(host, 5000)
         response = client.send_message(message+","+str(process.clock))
-        print("New clock:", response)
-        process.clock = int(response)
+        print("New clock:", response.message)
+        process.clock = int(response.message)
         print()
         message = input("Enter message: ")
         

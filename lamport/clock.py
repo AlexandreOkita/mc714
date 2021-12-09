@@ -64,10 +64,14 @@ if __name__ == '__main__':
     host = process.other_numbers[int(host)]
     message = input("Now enter a message: ")
     while message != "" or message != "exit":
+        if message == "change host":
+            process.show_menu()
+            host = input("Choose a host: ")
+            host = process.other_numbers[int(host)]
+            message = input("Now enter a new message: ")
         client = c.UnaryClient(host, 5000)
         response = client.send_message(message+","+str(process.clock))
         print("New clock:", response.message)
         process.clock = int(response.message)
         print()
         message = input("Enter message: ")
-        
